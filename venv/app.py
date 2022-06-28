@@ -20,7 +20,7 @@ def respond(path):
     path = path.replace('%', ':')
     print(path)
     # retrieve the message in JSON and then transform it to Telegram object
-    update = telegram.Update.de_json(request.get_json(force=True), bot)
+    update = telegram.Update.de_json(request.get_json(force=True))
     Application.process_update(self=bot, update=update)
     chat_id = update.message.chat.id
     msg_id = update.message.message_id
